@@ -1,5 +1,6 @@
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import {withBase} from '../utils/paths';
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,11 +14,11 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-300 hover:text-[#CA9D75] transition font-medium">HOME</a>
-            <a href="/villas/" className="text-gray-300 hover:text-[#CA9D75] transition font-medium">VILLAS</a>
-            <a href="/kr-projects/" className="text-gray-300 hover:text-[#CA9D75] transition font-medium">KR PROJECTS</a>
-            <a href="/blog/blog/" className="text-gray-300 hover:text-[#CA9D75] transition font-medium">BLOG</a>
-            <a href="/register-interest/" className="bg-[#AC835D] text-white px-6 py-2 rounded-lg hover:bg-[#CA9D75] transition shadow-lg">
+            <a href={withBase('/')} className="text-gray-300 hover:text-[#CA9D75] transition font-medium">HOME</a>
+            <a href={withBase('/villas/')} className="text-gray-300 hover:text-[#CA9D75] transition font-medium">VILLAS</a>
+            <a href={withBase('/kr-projects/')} className="text-gray-300 hover:text-[#CA9D75] transition font-medium">KR PROJECTS</a>
+            <a href={withBase('/blog/blog/')} className="text-gray-300 hover:text-[#CA9D75] transition font-medium">BLOG</a>
+            <a href={withBase('/register-interest/')} className="bg-[#AC835D] text-white px-6 py-2 rounded-lg hover:bg-[#CA9D75] transition shadow-lg">
               Enquiries
             </a>
           </div>
@@ -32,11 +33,11 @@ export function Navbar() {
 
         {isMenuOpen && (
           <div className="md:hidden py-4 space-y-4 bg-[#181D24] px-2 rounded-b-xl border-t border-gray-800">
-            <a href="/" className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
-            <a href="/villas/" className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>VILLAS</a>
-            <a href="/kr-projects/" className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>KR PROJECTS</a>
-            <a href="/blog/blog/" className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>BLOG</a>
-            <a href="/register-interest/" className="block w-full bg-[#AC835D] text-white px-6 py-3 rounded-lg hover:bg-[#CA9D75] transition mt-4 text-center" onClick={() => setIsMenuOpen(false)}>
+            <a href={withBase('/')} className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>HOME</a>
+            <a href={withBase('/villas/')} className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>VILLAS</a>
+            <a href={withBase('/kr-projects/')} className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>KR PROJECTS</a>
+            <a href={withBase('/blog/blog/')} className="block text-gray-300 hover:text-[#CA9D75] transition p-2" onClick={() => setIsMenuOpen(false)}>BLOG</a>
+            <a href={withBase('/register-interest/')} className="block w-full bg-[#AC835D] text-white px-6 py-3 rounded-lg hover:bg-[#CA9D75] transition mt-4 text-center" onClick={() => setIsMenuOpen(false)}>
               Enquiries
             </a>
           </div>

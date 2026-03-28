@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import {contactInfo} from '../data/siteContent';
+import {withBase} from '../utils/paths';
 
 export function Footer() {
   return (
@@ -22,20 +23,20 @@ export function Footer() {
           <div>
             <h3 className="mb-4 text-[#CA9D75] font-semibold text-lg">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a href="/" className="text-gray-400 hover:text-white transition">Home</a></li>
-              <li><a href="/villas/" className="text-gray-400 hover:text-white transition">Villas</a></li>
-              <li><a href="/kr-projects/" className="text-gray-400 hover:text-white transition">KR Projects</a></li>
-              <li><a href="/blog/blog/" className="text-gray-400 hover:text-white transition">Blog</a></li>
+              <li><a href={withBase('/')} className="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href={withBase('/villas/')} className="text-gray-400 hover:text-white transition">Villas</a></li>
+              <li><a href={withBase('/kr-projects/')} className="text-gray-400 hover:text-white transition">KR Projects</a></li>
+              <li><a href={withBase('/blog/blog/')} className="text-gray-400 hover:text-white transition">Blog</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="mb-4 text-[#CA9D75] font-semibold text-lg">Our Projects</h3>
             <ul className="space-y-2">
-              <li><a href="/bella-vida/" className="text-gray-400 hover:text-white cursor-pointer transition">Bella Vida</a></li>
-              <li><a href="/m-villa/" className="text-gray-400 hover:text-white cursor-pointer transition">M Villa</a></li>
-              <li><a href="/r-villa/" className="text-gray-400 hover:text-white cursor-pointer transition">R Villa</a></li>
-              <li><a href="/oxford-towers/" className="text-gray-400 hover:text-white cursor-pointer transition">Oxford Towers</a></li>
+              <li><a href={withBase('/bella-vida/')} className="text-gray-400 hover:text-white cursor-pointer transition">Bella Vida</a></li>
+              <li><a href={withBase('/m-villa/')} className="text-gray-400 hover:text-white cursor-pointer transition">M Villa</a></li>
+              <li><a href={withBase('/r-villa/')} className="text-gray-400 hover:text-white cursor-pointer transition">R Villa</a></li>
+              <li><a href={withBase('/oxford-towers/')} className="text-gray-400 hover:text-white cursor-pointer transition">Oxford Towers</a></li>
             </ul>
           </div>
 

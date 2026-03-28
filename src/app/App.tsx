@@ -17,6 +17,7 @@ import {ProjectCard} from './components/ProjectCard';
 import {PropertyCard} from './components/PropertyCard';
 import {ImageWithFallback} from './components/figma/ImageWithFallback';
 import {archivePages, blogPosts, contactInfo, projects, villas} from './data/siteContent';
+import {withBase} from './utils/paths';
 
 function SectionTitle({
   eyebrow,
@@ -117,13 +118,13 @@ function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="/kr-projects/"
+                href={withBase('/kr-projects/')}
                 className="bg-[#AC835D] text-white px-10 py-4 rounded-lg hover:bg-[#CA9D75] transition shadow-xl font-medium"
               >
                 Explore Our Properties
               </a>
               <a
-                href="/register-interest/"
+                href={withBase('/register-interest/')}
                 className="border-2 border-[#CA9D75] text-[#CA9D75] px-10 py-4 rounded-lg hover:bg-[#CA9D75]/10 transition font-medium"
               >
                 Schedule a Tour
@@ -142,7 +143,7 @@ function HomePage() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {villas.map((villa) => (
-              <a key={villa.slug} href={villa.slug} className="block">
+              <a key={villa.slug} href={withBase(villa.slug)} className="block">
                 <PropertyCard
                   image={villa.image}
                   title={villa.name}
@@ -217,7 +218,7 @@ function HomePage() {
             and upcoming developments.
           </p>
           <a
-            href="/register-interest/"
+            href={withBase('/register-interest/')}
             className="inline-flex items-center bg-[#AC835D] text-white px-10 py-4 rounded-lg hover:bg-[#CA9D75] transition shadow-lg font-medium"
           >
             Register Interest
@@ -247,7 +248,7 @@ function VillasIndexPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {villas.map((villa) => (
-              <a key={villa.slug} href={villa.slug} className="block">
+              <a key={villa.slug} href={withBase(villa.slug)} className="block">
                 <PropertyCard
                   image={villa.image}
                   title={villa.name}
@@ -508,10 +509,10 @@ function BlogIndexPage({path}: {path: keyof typeof archivePages}) {
                 <span>{post.category}</span>
               </div>
               <h2 className="text-3xl font-bold text-[#181D24] mb-4">
-                <a href={post.slug}>{post.title}</a>
+              <a href={withBase(post.slug)}>{post.title}</a>
               </h2>
               <p className="text-lg text-gray-600 mb-6">{post.excerpt}</p>
-              <a href={post.slug} className="inline-flex items-center text-[#AC835D] font-medium hover:text-[#CA9D75]">
+              <a href={withBase(post.slug)} className="inline-flex items-center text-[#AC835D] font-medium hover:text-[#CA9D75]">
                 Read more
                 <ArrowRight size={16} className="ml-2" />
               </a>
@@ -550,7 +551,7 @@ function BlogPostPage({slug}: {slug: string}) {
             {post.tags.map((tag) => (
               <a
                 key={tag}
-                href={`/tag/${tag}/`}
+                href={withBase(`/tag/${tag}/`)}
                 className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition"
               >
                 #{tag}
@@ -630,7 +631,7 @@ function NotFoundPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm uppercase tracking-[0.35em] text-[#AC835D] mb-4">Page not found</p>
           <h1 className="text-5xl font-bold text-[#181D24] mb-6">This page is not in the Kuber Realty sitemap yet.</h1>
-          <a href="/" className="inline-flex items-center bg-[#AC835D] text-white px-8 py-4 rounded-xl hover:bg-[#CA9D75] transition font-medium">
+          <a href={withBase('/')} className="inline-flex items-center bg-[#AC835D] text-white px-8 py-4 rounded-xl hover:bg-[#CA9D75] transition font-medium">
             Back to homepage
           </a>
         </div>

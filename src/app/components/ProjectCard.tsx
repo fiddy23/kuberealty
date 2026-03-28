@@ -1,5 +1,6 @@
 import { MapPin, Calendar, Tag, Check } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import {withBase} from '../utils/paths';
 
 interface ProjectCardProps {
   name: string;
@@ -32,7 +33,7 @@ export function ProjectCard({
 
   return (
     <Wrapper
-      {...(href ? { href } : {})}
+      {...(href ? { href: withBase(href) } : {})}
       className="block bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
