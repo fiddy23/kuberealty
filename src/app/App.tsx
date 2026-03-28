@@ -640,9 +640,14 @@ function NotFoundPage() {
 }
 
 export default function App() {
-  const path = window.location.pathname.endsWith('/')
-    ? window.location.pathname
-    : `${window.location.pathname}/`;
+  const basePath =
+    import.meta.env.BASE_URL === '/'
+      ? ''
+      : import.meta.env.BASE_URL.replace(/\/$/, '');
+  const rawPath = window.location.pathname.startsWith(basePath)
+    ? window.location.pathname.slice(basePath.length) || '/'
+    : window.location.pathname;
+  const path = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
 
   if (path === '/') return <HomePage />;
   if (path === '/villas/') return <VillasIndexPage />;
